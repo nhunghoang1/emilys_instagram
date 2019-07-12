@@ -66,3 +66,6 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0'
 # jquery-rails
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'toastr-rails'
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-twitter', '~> 1.4'
