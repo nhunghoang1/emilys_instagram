@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+gem 'dotenv-rails', groups: [:development, :test]
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -69,3 +70,6 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'toastr-rails'
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-twitter', '~> 1.4'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'cloudinary', '~> 1.11', '>= 1.11.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
