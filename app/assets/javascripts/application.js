@@ -13,9 +13,9 @@
 //= require rails-ujs
 //= require jquery3
 //= require popper
+//= require dropzone
+//= require toastr
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require toastr
-//= require dropzone
