@@ -12,16 +12,14 @@ class PostsController < ApplicationController
 
     if @post.save
       if params[:images]
-        params[:images].each do |img|
-          @post.photos.create(image: params[:images][img])
+        params[:images].keys.each do |img|
+          @post.photos.create(image: params[:images][img] )
         end
       end
     
-      redirect_to posts_path
-      flash[:notice] = "Saved..."
+      redirect_to posts_path, notice: 'Saved'
     else
-      flash[:alert] = "Something went wrong ..."
-      redirect_to posts_path
+      redirect_to posts_path, alert: 'Something went wrong ...'
     end
   end
 

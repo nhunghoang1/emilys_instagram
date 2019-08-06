@@ -1,4 +1,4 @@
-class CommentsController < ApllicationController
+class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def index 
@@ -6,7 +6,7 @@ class CommentsController < ApllicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
     if @comment.save
       @post = @comment.post
       respond_to :js
