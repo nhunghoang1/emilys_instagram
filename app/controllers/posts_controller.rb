@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def show
     @photos = @post.photos
     @likes = @post.likes.includes(:user)
+    @comment = Comment.new
     @is_liked = @post.is_liked(current_user)
   end
 
@@ -36,8 +37,10 @@ class PostsController < ApplicationController
       if @post.destroy
         flash[:notice] = "Post deleted!"
       else
-        flsah[:alert] = "Something went wrong ..."
+        flash[:alert] = "Something went wrong ..."
       end
+    else
+      flash[:notice] = "You don't have permission to do this!"
     end
   end 
 
