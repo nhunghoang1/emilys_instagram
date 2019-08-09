@@ -22,4 +22,12 @@ class User < ApplicationRecord
       user.provider = auth.provider
     end
   end
+
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#term%")
+    else
+      nil
+    end
+  end
 end
