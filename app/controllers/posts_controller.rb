@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post, only: [:show, :destroy]
+  before_action :check_img, only: [:create]
   
   def index
     @posts = Post.paginate(:page => params[:page], :per_page => 5).includes(:photos, :user, :likes).
-      order("created_at_desc")
+      order(created_at: :DESC)
     @post = Post.new
   end
 
@@ -52,6 +53,13 @@ class PostsController < ApplicationController
     return if @post
     flash[:danger] = "Post not exist!"
     redirect_to root_path
+  end
+
+  def check_img
+    if params[:images].keys.empty?
+      flash[:danger] = "Post not exist!"
+    redirect_to root_path
+    end
   end
 
   def post_params

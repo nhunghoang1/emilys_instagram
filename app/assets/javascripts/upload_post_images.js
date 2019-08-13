@@ -24,7 +24,7 @@ $(document).ready(function(){
       });
 
       this.on("successmutiple", function(files, response){
-        window.location.reload();
+       // window.location.reload();
       })
 
       this.on("errormultiple", function(files, response){
